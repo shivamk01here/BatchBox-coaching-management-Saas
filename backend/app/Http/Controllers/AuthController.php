@@ -23,7 +23,7 @@ class AuthController extends Controller
             'type' => 'required|string|in:school,college,university',
             'adminName' => 'required|string|max:255',
             'adminEmail' => 'required|string|email|max:255|unique:users,email',
-            'password' => 'required|string|min:8|confirmed',
+            'password' => 'required|string',
         ]);
 
         if ($validator->fails()) {
