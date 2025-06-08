@@ -4,13 +4,16 @@ import Sidebar from './Sidebar';
 import Navbar from './Navbar';
 import DashboardContent from './DashboardContent';
 import ProfilePage from './ProfilePage';
+import Homepage from './Homepage';
 
 const Dashboard = () => {
   const { user } = useAuth();
-  const [activeTab, setActiveTab] = useState('dashboard');
+  const [activeTab, setActiveTab] = useState('Homepage');
 
   const renderContent = () => {
     switch (activeTab) {
+      case 'Homepage':
+        return <Homepage />;
       case 'dashboard':
         return <DashboardContent user={user} />;
       case 'profile':
