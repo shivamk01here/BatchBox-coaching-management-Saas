@@ -39,4 +39,32 @@ class Student extends Model
     {
         return $this->hasOne(Fee::class);
     }
+
+    public function feedbacks()
+    {
+        return $this->morphMany(Feedback::class, 'feedbackable');
+    }
+
+    // A "virtual" attribute that doesn't exist directly in the database but is computed from other attributes.
+    // below is accessor
+    public function getFullNameAttribute()
+    {
+        return $this->first_name . ' ' . $this->last_name;
+    }
+
+    //mutator
+    public function setPhoneAttribute($value){
+        $this->attributes['phone'] = preg_replace('/\D/', '', $value);
+    }
+
+    //scope - a reusable query
+    public function scopeActive($query){
+        return $query->where('is_active', true);
+    }
+
+    //global scope
+    protected static function booted()
+    {
+        static::addGlobalScope('notDeleted', fn ($builder) => $builder->whereNull('deleted_at'));
+    }
 }

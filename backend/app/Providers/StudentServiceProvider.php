@@ -5,13 +5,11 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use App\Contracts\StudentContract;
 use App\Services\StudentService;
-use App\Observers\ReportObserver;
-use App\Models\Report;
 
-class AppServiceProvider extends ServiceProvider
+class StudentServiceProvider extends ServiceProvider
 {
     /**
-     * Register any application services.
+     * Register services.
      */
     public function register(): void
     {
@@ -19,10 +17,10 @@ class AppServiceProvider extends ServiceProvider
     }
 
     /**
-     * Bootstrap any application services.
+     * Bootstrap services.
      */
     public function boot(): void
     {
-        Report::observe(ReportObserver::class);
+        //
     }
 }
