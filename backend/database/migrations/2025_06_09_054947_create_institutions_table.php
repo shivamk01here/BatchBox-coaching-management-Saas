@@ -14,13 +14,12 @@ return new class extends Migration
         Schema::create('institutions', function (Blueprint $table) {
             $table->id('institutionID');
             $table->string('name');
-            $table->string('email')->unique();
-            $table->string('phone');
-            $table->text('address');
-            $table->enum('type', ['school', 'college', 'university']);
+            $table->enum('status', ['active', 'inactive'])->default('active');
+            $table->boolean('is_verified')->default(false);
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.

@@ -13,16 +13,10 @@ return new class extends Migration
     {
         Schema::create('roles', function (Blueprint $table) {
             $table->id('roleID');
-            $table->string('name');
-            $table->string('description')->nullable();
-            $table->unsignedBigInteger('institutionID');
+            $table->string('roleName');
             $table->timestamps();
-            
-            $table->foreign('institutionID')->references('institutionID')->on('institutions')->onDelete('cascade');
-            $table->index('institutionID');
         });
     }
-
     /**
      * Reverse the migrations.
      */
