@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('institutions', function (Blueprint $table) {
-            $table->id('institutionID');
+            $table->id();
             $table->string('name');
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->boolean('is_verified')->default(false);

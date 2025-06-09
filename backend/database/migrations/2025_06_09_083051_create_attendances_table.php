@@ -11,17 +11,21 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('roles', function (Blueprint $table) {
+        Schema::create('attendances', function (Blueprint $table) {
             $table->id();
-            $table->string('roleName');
+            $table->integer('student_id');
+            $table->integer('classroom_session_id');
+            $table->enum('status', ['present', 'absent', 'late']);
+            $table->string('remarks')->nullable();
             $table->timestamps();
         });
     }
+
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('roles');
+        Schema::dropIfExists('attendances');
     }
 };

@@ -11,17 +11,21 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('roles', function (Blueprint $table) {
+        Schema::create('feedback', function (Blueprint $table) {
             $table->id();
-            $table->string('roleName');
+            $table->morphs('feedbackable'); // feedbackable_id, feedbackable_type
+            $table->foreignId('given_by')->constrained('users')->onDelete('set null')->nullable();
+            $table->text('remarks');
+            $table->unsignedTinyInteger('rating')->nullable(); // 1–5 stars
             $table->timestamps();
         });
     }
+
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('roles');
+        Schema::dropIfExists('feedback');
     }
 };

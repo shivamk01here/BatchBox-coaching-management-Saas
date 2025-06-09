@@ -11,17 +11,22 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('roles', function (Blueprint $table) {
+        Schema::create('fees', function (Blueprint $table) {
             $table->id();
-            $table->string('roleName');
+            $table->foreignId('student_id')->constrained()->onDelete('cascade');
+            $table->decimal('amount', 10, 2);
+            $table->boolean('paid')->default(false);
+            $table->date('payment_date')->nullable();
+            $table->text('remarks')->nullable();
             $table->timestamps();
         });
     }
+
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('roles');
+        Schema::dropIfExists('fees');
     }
 };

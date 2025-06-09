@@ -1,28 +1,37 @@
 <?php
-namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
-use App\Models\User;
-use App\Models\Institution;
-use App\Models\Role;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
-class UsersTableSeeder extends Seeder
+return new class extends Migration
 {
-    public function run(): void
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
     {
-        $institution = Institution::first();
-        $role = Role::where('roleName', 'owner')->first();
+        Schema::create('users', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('institutionID');
+            $table->unsignedBigInteger('roleID');
+            $table->string('name');
+            $table->string('surname')->nullable();
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->boolean('is_verified')->default(false);
+            $table->timestamps();
 
-        User::firstOrCreate([
-            'email' => 'owner@demo.com',
-        ], [
-            'name' => 'Demo',
-            'surname' => 'Owner',
-            'password' => Hash::make('password123'),
-            'institutionID' => $institution->institutionID,
-            'roleID' => $role->roleID,
-            'is_verified' => true,
-        ]);
+            $table->foreign('institutionID')->references('id')->on('institutions')->onDelete('cascade');
+            $table->foreign('roleID')->references('id')->on('roles')->onDelete('cascade');
+        });
     }
-}
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('users');
+    }
+};

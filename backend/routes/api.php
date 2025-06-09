@@ -14,3 +14,13 @@ Route::middleware('auth:sanctum')->group(function () {
 
 
 Route::post('/register', [InstitutionController::class, 'register']);
+
+
+
+Route::middleware(['auth.sanctum, log.requests'])->prefix('v1')->group(function(){
+    // Route::apiResource('students', StudentController::class)->names('students');
+    // Route::apiResource('reports', ReportController::Class)->names('reports');
+    // Route::apiResource('batches/{batch}/students', [BatchController::Class, 'students'])->names('batches.students');
+    // Route::apiResource('students/{id}/fee-status', [FeeController::class, 'status'])
+    //      ->name('fees.status');
+});
