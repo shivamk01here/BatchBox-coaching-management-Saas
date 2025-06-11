@@ -6,6 +6,8 @@ import Register from './components/Register';
 import Dashboard from './components/Dashboard';
 import ProtectedRoute from './components/ProtectedRoute';
 import './App.css';
+import Homepage from './components/Homepage';
+import OBpage from './components/OBpage';
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
           <Routes>
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/home" element={<Homepage />} />
+            <Route path="/:obpage" element={<OBpage />} />   
             <Route 
               path="/dashboard" 
               element={
@@ -23,7 +27,7 @@ function App() {
                 </ProtectedRoute>
               } 
             />
-            <Route path="/" element={<Navigate to="/login" />} />
+            <Route path="/" element={<Navigate to="/home" />} />
           </Routes>
         </div>
       </Router>

@@ -18,7 +18,7 @@ class InstitutionService
             $data = $request->only('institution_name', 'owner_name', 'surname', 'email', 'password');
             $result = InstitutionHelper::createInstitutionWithOwner($data);
 
-            SendVerificationEmail::dispatch($result['user']);
+            // SendVerificationEmail::dispatch($result['user']);
 
             DB::commit();
             return response()->json(['success' => true, 'user' => $result['user'], 'institution' => $result['institution']], 201);

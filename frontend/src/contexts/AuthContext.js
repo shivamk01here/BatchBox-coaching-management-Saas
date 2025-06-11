@@ -76,7 +76,7 @@ export const AuthProvider = ({ children }) => {
       // Get CSRF token first
       await getCsrfToken();
       
-      const response = await axios.post('/api/register-institution', formData);
+      const response = await axios.post('/api/register', formData);
       if (response.data.success) {
         const { user, token } = response.data;
         localStorage.setItem('token', token);

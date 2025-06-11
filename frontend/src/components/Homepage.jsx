@@ -22,9 +22,11 @@ import {
   Menu,
   X
 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Homepage = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+  const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50">
@@ -47,10 +49,14 @@ const Homepage = () => {
                 <a href="#pricing" className="text-gray-700 hover:text-purple-600 transition-colors">Pricing</a>
                 <a href="#about" className="text-gray-700 hover:text-purple-600 transition-colors">About</a>
                 <a href="#contact" className="text-gray-700 hover:text-purple-600 transition-colors">Contact</a>
-                <button className="text-gray-700 hover:text-purple-600 transition-colors font-medium">
+                <button 
+                  onClick={() => navigate('/login')}
+                  className="text-gray-700 hover:text-purple-600 transition-colors font-medium">
                   Login
                 </button>
-                <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg transition-all duration-300 hover:scale-105">
+                <button 
+                  onClick={() => navigate('/register')}
+                  className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg transition-all duration-300 hover:scale-105">
                   Get Started
                 </button>
               </div>
@@ -108,14 +114,12 @@ const Homepage = () => {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2">
-                  Start Free Trial
-                  <ArrowRight size={20} />
-                </button>
-                <button className="border border-gray-300 text-gray-700 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-gray-50 transition-all duration-300 flex items-center justify-center gap-2">
-                  <Play size={20} />
-                  Watch Demo
-                </button>
+                  <button
+                    onClick={() => navigate('/register')}
+                    className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2" >
+                    Start Free Trial
+                    <ArrowRight size={20} />
+                  </button>
               </div>
 
               {/* Social Proof */}

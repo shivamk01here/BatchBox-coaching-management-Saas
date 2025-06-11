@@ -16,6 +16,8 @@ class InstitutionHelper
             'status' => 'active',
             'is_verified' => false,
         ]);
+
+        // dd($institution);
         
         $ownerRole = Role::firstOrCreate(
             ['roleName' => 'owner']
@@ -26,8 +28,8 @@ class InstitutionHelper
             'surname' => $data['surname'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'institutionID' => $institution->institutionID,
-            'roleID' => $ownerRole->roleID,
+            'institutionID' => $institution->id,
+            'roleID' => $ownerRole->id,
             'is_verified' => false,
         ]);
         

@@ -25,8 +25,8 @@ class UsersTableSeeder extends Seeder
             'name' => 'Demo',
             'surname' => 'Owner',
             'password' => Hash::make('password123'),
-            'institutionID' => $institution->institutionID,
-            'roleID' => $role->roleID,
+            'institutionID' => 1,
+            'roleID' => 1,
             'is_verified' => true,
         ]);
     }

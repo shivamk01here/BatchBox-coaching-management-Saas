@@ -9,7 +9,7 @@ class Institution extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'institutionID';
+    protected $primaryKey = 'id';
     
     protected $fillable = [
         'name',

@@ -5,6 +5,11 @@ import Navbar from './Navbar';
 import DashboardContent from './DashboardContent';
 import ProfilePage from './ProfilePage';
 import Homepage from './Homepage';
+import People from './People';
+import Subject from '../components/Sidebar/Subject';
+import Package from '../components/Sidebar/Package';
+import Class from '../components/Sidebar/Class';
+import BookingSetting from './BookingSetting';
 
 const Dashboard = () => {
   const { user } = useAuth();
@@ -12,12 +17,22 @@ const Dashboard = () => {
 
   const renderContent = () => {
     switch (activeTab) {
-      case 'Homepage':
-        return <Homepage />;
       case 'dashboard':
         return <DashboardContent user={user} />;
       case 'profile':
         return <ProfilePage user={user} />;
+      case 'People':
+          return <People />;
+      case 'Subject':
+        return <Subject />;
+      case 'Class':
+        return <Class />;
+      case 'item':
+          return <Package />;
+      case 'online Booking':
+          return <BookingSetting />;
+      case 'analytics':
+          return <div>analytics would be here soon</div>
       case 'users':
         return <div className="p-6 bg-white rounded-2xl shadow-lg"><h2 className="text-2xl font-bold text-gray-900">Users Management</h2><p className="text-gray-600 mt-2">Coming Soon</p></div>;
       case 'courses':
@@ -27,7 +42,7 @@ const Dashboard = () => {
       case 'settings':
         return <div className="p-6 bg-white rounded-2xl shadow-lg"><h2 className="text-2xl font-bold text-gray-900">Settings</h2><p className="text-gray-600 mt-2">Coming Soon</p></div>;
       default:
-        return <DashboardContent user={user} />;
+        return  <DashboardContent user={user} />;
     }
   };
 

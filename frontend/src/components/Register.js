@@ -5,19 +5,16 @@ import './Auth.css';
 
 const Register = () => {
   const [formData, setFormData] = useState({
-    name: '',
+    institution_name: '',
+    owner_name: '',
+    surname: '',
     email: '',
-    phone: '',
-    address: '',
-    type: 'school',
-    adminName: '',
-    adminEmail: '',
     password: '',
     password_confirmation: ''
   });
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
-  
+
   const { register } = useAuth();
   const navigate = useNavigate();
 
@@ -34,175 +31,117 @@ const Register = () => {
     setErrors({});
 
     const result = await register(formData);
-    
     if (result.success) {
       navigate('/dashboard');
     } else {
       setErrors(result.errors || {});
     }
-    
     setLoading(false);
   };
 
   return (
-    <div className="auth-container">
-      <div className="auth-card register-card">
-        <div className="auth-header">
-          <h1>Register Institution</h1>
-          <p>Create an account for your educational institution</p>
-        </div>
-        
-        <form onSubmit={handleSubmit} className="auth-form">
-          <div className="form-section">
-            <h3>Institution Details</h3>
-            
-            <div className="form-group">
-              <label htmlFor="name">Institution Name</label>
+    <div className="min-h-screen flex">
+      <div className="w-1/2 bg-gray-100 flex flex-col justify-end p-10">
+        <p className="text-gray-500 italic text-sm text-center">
+          "Education is the most powerful weapon which you can use to change the world." – Nelson Mandela
+        </p>
+      </div>
+
+      <div className="w-1/2 flex items-center justify-center bg-white">
+        <div className="max-w-md w-full space-y-6 p-8 shadow-xl rounded-xl border border-gray-200">
+          <div>
+            <h2 className="text-3xl font-bold text-gray-800">Register Institution</h2>
+            <p className="text-sm text-gray-500">Create an account for your educational institution</p>
+          </div>
+
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div>
+              <label className="block text-sm font-medium text-gray-700">Institution Name</label>
               <input
                 type="text"
-                id="name"
-                name="name"
-                value={formData.name}
+                name="institution_name"
+                value={formData.institution_name}
                 onChange={handleChange}
+                className="mt-1 w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-purple-600"
                 required
-                placeholder="Enter institution name"
               />
-              {errors.name && <span className="error-text">{errors.name[0]}</span>}
+              {errors.institution_name && <p className="text-red-500 text-sm mt-1">{errors.institution_name[0]}</p>}
             </div>
 
-            <div className="form-group">
-              <label htmlFor="email">Institution Email</label>
+            <div>
+              <label className="block text-sm font-medium text-gray-700">Owner Name</label>
+              <input
+                type="text"
+                name="owner_name"
+                value={formData.owner_name}
+                onChange={handleChange}
+                className="mt-1 w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-purple-600"
+                required
+              />
+              {errors.owner_name && <p className="text-red-500 text-sm mt-1">{errors.owner_name[0]}</p>}
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700">Surname (optional)</label>
+              <input
+                type="text"
+                name="surname"
+                value={formData.surname}
+                onChange={handleChange}
+                className="mt-1 w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-purple-600"
+              />
+              {errors.surname && <p className="text-red-500 text-sm mt-1">{errors.surname[0]}</p>}
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700">Email</label>
               <input
                 type="email"
-                id="email"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
+                className="mt-1 w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-purple-600"
                 required
-                placeholder="Enter institution email"
               />
-              {errors.email && <span className="error-text">{errors.email[0]}</span>}
+              {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email[0]}</p>}
             </div>
 
-            <div className="form-group">
-              <label htmlFor="phone">Phone Number</label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                value={formData.phone}
-                onChange={handleChange}
-                required
-                placeholder="Enter phone number"
-              />
-              {errors.phone && <span className="error-text">{errors.phone[0]}</span>}
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="type">Institution Type</label>
-              <select
-                id="type"
-                name="type"
-                value={formData.type}
-                onChange={handleChange}
-                required
-              >
-                <option value="school">School</option>
-                <option value="college">College</option>
-                <option value="university">University</option>
-              </select>
-              {errors.type && <span className="error-text">{errors.type[0]}</span>}
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="address">Address</label>
-              <textarea
-                id="address"
-                name="address"
-                value={formData.address}
-                onChange={handleChange}
-                required
-                placeholder="Enter institution address"
-                rows="3"
-              />
-              {errors.address && <span className="error-text">{errors.address[0]}</span>}
-            </div>
-          </div>
-
-          <div className="form-section">
-            <h3>Administrator Details</h3>
-            
-            <div className="form-group">
-              <label htmlFor="adminName">Administrator Name</label>
-              <input
-                type="text"
-                id="adminName"
-                name="adminName"
-                value={formData.adminName}
-                onChange={handleChange}
-                required
-                placeholder="Enter administrator name"
-              />
-              {errors.adminName && <span className="error-text">{errors.adminName[0]}</span>}
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="adminEmail">Administrator Email</label>
-              <input
-                type="email"
-                id="adminEmail"
-                name="adminEmail"
-                value={formData.adminEmail}
-                onChange={handleChange}
-                required
-                placeholder="Enter administrator email"
-              />
-              {errors.adminEmail && <span className="error-text">{errors.adminEmail[0]}</span>}
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="password">Password</label>
+            <div>
+              <label className="block text-sm font-medium text-gray-700">Password</label>
               <input
                 type="password"
-                id="password"
                 name="password"
                 value={formData.password}
                 onChange={handleChange}
+                className="mt-1 w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-purple-600"
                 required
-                placeholder="Enter password"
               />
-              {errors.password && <span className="error-text">{errors.password[0]}</span>}
+              {errors.password && <p className="text-red-500 text-sm mt-1">{errors.password[0]}</p>}
             </div>
 
-            <div className="form-group">
-              <label htmlFor="password_confirmation">Confirm Password</label>
+            <div>
+              <label className="block text-sm font-medium text-gray-700">Confirm Password</label>
               <input
                 type="password"
-                id="password_confirmation"
                 name="password_confirmation"
                 value={formData.password_confirmation}
                 onChange={handleChange}
+                className="mt-1 w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-purple-600"
                 required
-                placeholder="Confirm password"
               />
             </div>
-          </div>
 
-          <button 
-            type="submit" 
-            className="auth-button"
-            disabled={loading}
-          >
-            {loading ? 'Registering...' : 'Register Institution'}
-          </button>
-        </form>
+            <button
+              type="submit"
+              className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-2 rounded-md font-semibold text-lg hover:shadow-lg transition-all duration-300 hover:scale-[1.02]"
+              disabled={loading}
+            >
+              {loading ? 'Registering...' : 'Register Institution'}
+            </button>
+          </form>
 
-        <div className="auth-footer">
-          <p>
-            Already have an account? {' '}
-            <Link to="/login" className="auth-link">
-              Sign in here
-            </Link>
+          <p className="text-center text-sm text-gray-500 mt-4">
+            Already have an account? <Link to="/login" className="text-purple-600 font-medium">Sign in here</Link>
           </p>
         </div>
       </div>

@@ -11,7 +11,9 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   
-  const { login } = useAuth();
+  const { login ,currentUser} = useAuth();
+  const token = localStorage.getItem('token');
+  console.log('tt',token);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -37,6 +39,10 @@ const Login = () => {
     setLoading(false);
   };
 
+  const handleExistingUser = ()=> {
+    navigate('/dashboard');
+  }
+
   return (
     <div className="auth-container">
       <div className="auth-card">
@@ -44,9 +50,14 @@ const Login = () => {
           <h1>Welcome Back</h1>
           <p>Sign in to your account</p>
         </div>
-        
-        <form onSubmit={handleSubmit} className="auth-form">
-          {error && <div className="error-message">{error}</div>}
+        { 
+          token?<>  <button 
+          className="auth-button"
+          onClick={handleExistingUser}
+        >
+          Continue as {currentUser?.name}
+        </button></>:<><form onSubmit={handleSubmit} className="auth-form">
+         
           
           <div className="form-group">
             <label htmlFor="email">Email Address</label>
@@ -90,7 +101,8 @@ const Login = () => {
               Register your institution
             </Link>
           </p>
-        </div>
+        </div></>
+        }
       </div>
     </div>
   );

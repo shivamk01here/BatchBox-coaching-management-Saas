@@ -11,15 +11,16 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    protected $primaryKey = 'userID';
+    protected $primaryKey = 'id';
 
     protected $fillable = [
         'name',
         'email',
+        'surname',
         'password',
         'institutionID',
         'roleID',
-        'staffID',
+        'is_verified',
         'studentID',
         'phone',
         'date_of_birth',
@@ -43,12 +44,12 @@ class User extends Authenticatable
 
     public function institution()
     {
-        return $this->belongsTo(Institution::class, 'institutionID', 'institutionID');
+        return $this->belongsTo(Institution::class, 'institutionID', 'id');
     }
 
     public function role()
     {
-        return $this->belongsTo(Role::class, 'roleID', 'roleID');
+        return $this->belongsTo(Role::class, 'roleID', 'id');
     }
 
     // Helper methods

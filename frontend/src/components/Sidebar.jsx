@@ -7,17 +7,35 @@ import {
   FileText,
   Settings, 
   HelpCircle, 
-  LogOut 
+  LogOut ,
+  Book,
+  School,
+  Package
 } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 
 const Sidebar = ({ activeTab, setActiveTab }) => {
-  const { logout } = useAuth();
+  const { logout,currentUser } = useAuth();
+  console.log('user 2 : ',currentUser?.roleID);
 
-  const menuItems = [
+  const menuItems = currentUser?.roleID == 1 ? [
     { id: 'dashboard', icon: Home, label: 'Dashboard' },
-    { id: 'students', icon: Users, label: 'Students' },
-    { id: 'courses', icon: BookOpen, label: 'Courses' },
+    { id: 'People', icon: Users, label: 'People' },    // Changed to Book
+    { id: 'Class', icon: School, label: 'Class' }, 
+    { id: 'Subject', icon: Book, label: 'Subject' },  
+    { id: 'package', icon: Package, label: 'Packages' },     
+
+    { id: 'online Booking', icon: BookOpen, label: 'online Booking' },
+    { id: 'analytics', icon: BarChart3, label: 'Analytics' },
+    { id: 'reports', icon: FileText, label: 'Reports' },
+  ] :[
+    { id: 'dashboard', icon: Home, label: 'Dashboard' },
+    { id: 'People', icon: Users, label: 'People' },    // Changed to Book
+    { id: 'Class', icon: School, label: 'Class' },   // Changed to School
+    { id: 'item', icon: Package, label: 'item' }, 
+    { id: 'Subject', icon: Book, label: 'Subject' },    
+
+    { id: 'online Booking', icon: BookOpen, label: 'online Booking' },
     { id: 'analytics', icon: BarChart3, label: 'Analytics' },
     { id: 'reports', icon: FileText, label: 'Reports' },
   ];
