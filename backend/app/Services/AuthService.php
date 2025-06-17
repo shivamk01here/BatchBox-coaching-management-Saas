@@ -25,15 +25,13 @@ class AuthService
         }
 
         $user = Auth::user();
-        // dd($user);
-        $user->tokens()->delete(); // Revoke old tokens
+        $user->tokens()->delete();
 
         $token = $user->createToken('auth_token', [
             'userID:' . $user->userID,
             'roleID:' . $user->roleID
         ])->plainTextToken;
 
-        // DD($token);
         return response()->json([
             'success' => true,
             'message' => 'Login successful',

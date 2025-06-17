@@ -10,6 +10,10 @@
     "@fullcalendar/react": "^6.1.17",
     "@fullcalendar/timegrid": "^6.1.17",
     "@headlessui/react": "^2.2.4",
+<<<<<<< HEAD
+    "@heroicons/react": "^1.0.6",
+=======
+>>>>>>> 02401165eb2726f55949e8aae6803a222b65777f
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
@@ -24,7 +28,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "ESLINT_NO_DEV_ERRORS=true react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

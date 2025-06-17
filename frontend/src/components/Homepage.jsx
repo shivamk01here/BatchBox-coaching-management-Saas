@@ -1,26 +1,27 @@
 import React from 'react';
 import { 
-  Star, 
   Users, 
-  Globe, 
-  CheckCircle, 
-  Zap, 
-  Brain, 
+  BookOpen, 
   TrendingUp, 
-  Clock,
-  ArrowRight,
-  Play,
-  Award,
+  Shield, 
+  Clock, 
+  Brain, 
+  CheckCircle, 
   BarChart3,
-  Mail,
-  Phone,
-  MapPin,
-  Twitter,
-  Facebook,
-  Instagram,
-  Linkedin,
+  Calendar,
+  MessageSquare,
+  Award,
+  Settings,
+  ArrowRight,
   Menu,
-  X
+  X,
+  Star,
+  Phone,
+  Mail,
+  MapPin,
+  Linkedin,
+  Twitter,
+  Facebook
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
@@ -29,22 +30,46 @@ const Homepage = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50">
-      {/* Transparent Navbar */}
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-gray-50 to-blue-50">
+      {/* Header */}
       <nav className="fixed top-0 left-0 right-0 z-50">
-        <div className="bg-white/80 backdrop-blur-md border-b border-white/20 shadow-sm">
+        <div className="bg-white/90 backdrop-blur-md border-b border-gray-200/50 shadow-sm">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center h-16">
               {/* Logo */}
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-gradient-to-br from-blue-600 via-purple-600 to-purple-700 rounded-xl flex items-center justify-center shadow-lg">
-                  <span className="text-white font-bold text-lg">B</span>
+                <div className="relative">
+                  <div className="w-10 h-10 bg-gradient-to-br from-slate-700 via-blue-600 to-indigo-700 rounded-lg flex items-center justify-center shadow-md">
+                    <div className="w-6 h-6 border-2 border-white rounded-sm relative">
+                      <div className="absolute inset-1 bg-white rounded-xs opacity-80"></div>
+                      <div className="absolute top-0.5 left-0.5 w-1 h-1 bg-slate-700 rounded-full"></div>
+                      <div className="absolute top-0.5 right-0.5 w-1 h-1 bg-slate-700 rounded-full"></div>
+                      <div className="absolute bottom-0.5 left-0.5 right-0.5 h-0.5 bg-slate-700 rounded-full"></div>
+                    </div>
+                  </div>
                 </div>
-                <span className="text-2xl font-bold text-gray-900">BatchBox</span>
+                <div>
+                  <span className="text-2xl font-bold text-slate-800">BatchBox</span>
+                  <div className="text-xs text-slate-500 -mt-1">Everything. Simplified.</div>
+                </div>
               </div>
 
               {/* Desktop Navigation */}
               <div className="hidden md:flex items-center space-x-8">
+<<<<<<< HEAD
+                <a href="#features" className="text-slate-600 hover:text-slate-800 transition-colors font-medium">Features</a>
+                <a href="#solutions" className="text-slate-600 hover:text-slate-800 transition-colors font-medium">Solutions</a>
+                <a href="#pricing" className="text-slate-600 hover:text-slate-800 transition-colors font-medium">Pricing</a>
+                <a href="#contact" className="text-slate-600 hover:text-slate-800 transition-colors font-medium">Contact</a>
+                <button 
+                  onClick={() => navigate('/login')}
+                  className="text-slate-600 hover:text-slate-800 transition-colors font-medium">
+                  Sign In
+                </button>
+                <button 
+                  onClick={() => navigate('/register')}
+                  className="bg-slate-800 hover:bg-slate-700 text-white px-6 py-2.5 rounded-lg font-semibold transition-all duration-300 shadow-sm hover:shadow-md">
+=======
                 <a href="#features" className="text-gray-700 hover:text-purple-600 transition-colors">Features</a>
                 <a href="#pricing" className="text-gray-700 hover:text-purple-600 transition-colors">Pricing</a>
                 <a href="#about" className="text-gray-700 hover:text-purple-600 transition-colors">About</a>
@@ -57,6 +82,7 @@ const Homepage = () => {
                 <button 
                   onClick={() => navigate('/register')}
                   className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg transition-all duration-300 hover:scale-105">
+>>>>>>> 02401165eb2726f55949e8aae6803a222b65777f
                   Get Started
                 </button>
               </div>
@@ -65,7 +91,7 @@ const Homepage = () => {
               <div className="md:hidden">
                 <button
                   onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                  className="text-gray-700 hover:text-purple-600 transition-colors"
+                  className="text-slate-600 hover:text-slate-800 transition-colors"
                 >
                   {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
                 </button>
@@ -76,14 +102,15 @@ const Homepage = () => {
             {isMobileMenuOpen && (
               <div className="md:hidden bg-white/95 backdrop-blur-md border-t border-gray-200">
                 <div className="px-2 pt-2 pb-3 space-y-1">
-                  <a href="#features" className="block px-3 py-2 text-gray-700 hover:text-purple-600 transition-colors">Features</a>
-                  <a href="#pricing" className="block px-3 py-2 text-gray-700 hover:text-purple-600 transition-colors">Pricing</a>
-                  <a href="#about" className="block px-3 py-2 text-gray-700 hover:text-purple-600 transition-colors">About</a>
-                  <a href="#contact" className="block px-3 py-2 text-gray-700 hover:text-purple-600 transition-colors">Contact</a>
-                  <button className="block w-full text-left px-3 py-2 text-gray-700 hover:text-purple-600 transition-colors font-medium">
-                    Login
+                  <a href="#features" className="block px-3 py-2 text-slate-600 hover:text-slate-800 transition-colors font-medium">Features</a>
+                  <a href="#solutions" className="block px-3 py-2 text-slate-600 hover:text-slate-800 transition-colors font-medium">Solutions</a>
+                  <a href="#pricing" className="block px-3 py-2 text-slate-600 hover:text-slate-800 transition-colors font-medium">Pricing</a>
+                  <a href="#contact" className="block px-3 py-2 text-slate-600 hover:text-slate-800 transition-colors font-medium">Contact</a>
+                  <hr className="my-2" />
+                  <button className="block w-full text-left px-3 py-2 text-slate-600 hover:text-slate-800 transition-colors font-medium">
+                    Sign In
                   </button>
-                  <button className="block w-full mt-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg transition-all duration-300">
+                  <button className="block w-full mt-2 bg-slate-800 text-white px-6 py-2.5 rounded-lg font-semibold transition-all duration-300">
                     Get Started
                   </button>
                 </div>
@@ -95,170 +122,133 @@ const Homepage = () => {
 
       {/* Hero Section */}
       <div className="relative overflow-hidden pt-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-20">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
             <div className="space-y-8">
-              <div className="space-y-4">
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                  Discover the{' '}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-purple-700">
-                    freedom
+              <div className="space-y-6">
+                <div className="inline-flex items-center px-4 py-2 bg-slate-100 rounded-full text-sm font-medium text-slate-700">
+                  <Award className="mr-2 h-4 w-4 text-slate-600" />
+                  Trusted by 10,000+ Institutes Worldwide
+                </div>
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight">
+                  Everything Your
+                  <br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-700 via-blue-600 to-indigo-700">
+                    Institute Needs
                   </span>
                   <br />
-                  of AI-powered coaching
+                  In One Place
                 </h1>
-                <p className="text-xl text-gray-600 leading-relaxed">
-                  Manage your coaching, testing, and student progress easily, all in one powerful AI-driven platform.
+                <p className="text-xl text-slate-600 leading-relaxed max-w-xl">
+                  From student management to AI-powered assessments, streamline every aspect of your coaching institute with our comprehensive platform.
                 </p>
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
+<<<<<<< HEAD
+                <button
+                  onClick={() => navigate('/register')}
+                  className="bg-slate-800 hover:bg-slate-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2">
+                  Start Free Trial
+                  <ArrowRight size={20} />
+                </button>
+                <button className="border-2 border-slate-300 text-slate-700 hover:border-slate-400 hover:bg-slate-50 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300">
+                  Schedule Demo
+                </button>
+=======
                   <button
                     onClick={() => navigate('/register')}
                     className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2" >
                     Start Free Trial
                     <ArrowRight size={20} />
                   </button>
+>>>>>>> 02401165eb2726f55949e8aae6803a222b65777f
               </div>
 
-              {/* Social Proof */}
-              <div className="flex items-center gap-8 pt-4">
+              {/* Trust Indicators */}
+              <div className="flex items-center gap-8 pt-6">
                 <div className="flex -space-x-2">
-                  {[1, 2, 3, 4].map((i) => (
-                    <div key={i} className="w-10 h-10 rounded-full bg-gradient-to-r from-blue-400 to-purple-400 border-2 border-white flex items-center justify-center text-white font-bold text-sm">
+                  {[1, 2, 3, 4, 5].map((i) => (
+                    <div key={i} className="w-10 h-10 rounded-full bg-gradient-to-r from-slate-400 to-slate-600 border-2 border-white flex items-center justify-center text-white font-bold text-sm">
                       {String.fromCharCode(64 + i)}
                     </div>
                   ))}
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-gray-900">200k+</div>
-                  <div className="text-sm text-gray-600">Satisfied coaches</div>
+                  <div className="flex items-center gap-1 mb-1">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <Star key={star} size={16} className="text-yellow-400 fill-current" />
+                    ))}
+                    <span className="text-sm text-slate-600 ml-2">4.9/5</span>
+                  </div>
+                  <div className="text-sm text-slate-600">10,000+ Happy Institutes</div>
                 </div>
               </div>
             </div>
 
-            {/* Right - Desktop and Mobile Mockups */}
+            {/* Right - Dashboard Preview */}
             <div className="relative">
-              <div className="relative">
-                {/* Desktop Mockup (Background) */}
-                <div className="relative mx-auto w-full max-w-2xl">
-                  <div className="bg-gray-900 rounded-t-xl p-2 shadow-2xl">
-                    <div className="flex items-center gap-2 mb-2">
-                      <div className="flex gap-1">
-                        <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                        <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                        <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+              <div className="relative mx-auto w-full max-w-2xl">
+                {/* Main Dashboard */}
+                <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-200">
+                  <div className="bg-slate-800 px-6 py-4">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
+                          <div className="w-4 h-4 border border-white rounded-sm"></div>
+                        </div>
+                        <div>
+                          <h3 className="text-white font-semibold">BatchBox Dashboard</h3>
+                          <p className="text-slate-300 text-sm">Institute Management</p>
+                        </div>
                       </div>
-                    </div>
-                    <div className="bg-white rounded-lg overflow-hidden h-80">
-                      {/* Desktop Dashboard Content */}
-                      <div className="h-full bg-gradient-to-br from-slate-50 to-blue-50 p-6">
-                        <div className="flex items-center gap-4 mb-6">
-                          <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl flex items-center justify-center">
-                            <span className="text-white font-bold">B</span>
-                          </div>
-                          <div>
-                            <h2 className="text-xl font-bold text-gray-900">BatchBox Dashboard</h2>
-                            <p className="text-gray-600 text-sm">AI-Powered Coaching Platform</p>
-                          </div>
-                        </div>
-                        
-                        <div className="grid grid-cols-3 gap-4 mb-6">
-                          <div className="bg-white rounded-xl p-4 shadow-sm">
-                            <div className="text-2xl font-bold text-blue-600">1,240</div>
-                            <div className="text-sm text-gray-600">Total Students</div>
-                          </div>
-                          <div className="bg-white rounded-xl p-4 shadow-sm">
-                            <div className="text-2xl font-bold text-purple-600">47</div>
-                            <div className="text-sm text-gray-600">Tests Today</div>
-                          </div>
-                          <div className="bg-white rounded-xl p-4 shadow-sm">
-                            <div className="text-2xl font-bold text-green-600">94%</div>
-                            <div className="text-sm text-gray-600">Success Rate</div>
-                          </div>
-                        </div>
-
-                        <div className="bg-white rounded-xl p-4 shadow-sm">
-                          <h3 className="font-semibold text-gray-900 mb-3">Recent AI Tests Generated</h3>
-                          <div className="space-y-2">
-                            <div className="flex items-center gap-3 text-sm">
-                              <Brain className="text-purple-500" size={16} />
-                              <span>Mathematics - Chapter 5 Quiz</span>
-                              <span className="ml-auto text-green-600">●</span>
-                            </div>
-                            <div className="flex items-center gap-3 text-sm">
-                              <Brain className="text-blue-500" size={16} />
-                              <span>Physics - Motion Problems</span>
-                              <span className="ml-auto text-green-600">●</span>
-                            </div>
-                          </div>
-                        </div>
+                      <div className="flex gap-2">
+                        <div className="w-3 h-3 bg-red-400 rounded-full"></div>
+                        <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
+                        <div className="w-3 h-3 bg-green-400 rounded-full"></div>
                       </div>
                     </div>
                   </div>
-                </div>
+                  
+                  <div className="p-6 bg-gradient-to-br from-slate-50 to-blue-50">
+                    {/* Stats Cards */}
+                    <div className="grid grid-cols-3 gap-4 mb-6">
+                      <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-100">
+                        <div className="text-2xl font-bold text-slate-800">2,847</div>
+                        <div className="text-sm text-slate-600">Active Students</div>
+                        <div className="text-xs text-green-600 mt-1">↗ +12%</div>
+                      </div>
+                      <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-100">
+                        <div className="text-2xl font-bold text-blue-600">86</div>
+                        <div className="text-sm text-slate-600">Classes Today</div>
+                        <div className="text-xs text-green-600 mt-1">↗ +8%</div>
+                      </div>
+                      <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-100">
+                        <div className="text-2xl font-bold text-indigo-600">94.2%</div>
+                        <div className="text-sm text-slate-600">Attendance</div>
+                        <div className="text-xs text-green-600 mt-1">↗ +2%</div>
+                      </div>
+                    </div>
 
-                {/* Mobile Mockup (Overlapping) */}
-                <div className="absolute -bottom-8 -right-4 sm:-right-8 lg:-right-12">
-                  <div className="w-48 sm:w-56 h-96 sm:h-112">
-                    <div className="absolute inset-0 bg-gray-900 rounded-[2rem] shadow-2xl">
-                      <div className="absolute inset-2 bg-black rounded-[1.5rem] overflow-hidden">
-                        <div className="h-full bg-gradient-to-br from-slate-900 to-purple-900 relative">
-                          {/* Mobile Status Bar */}
-                          <div className="flex justify-between items-center px-4 pt-3 text-white text-xs">
-                            <span>9:41</span>
-                            <div className="flex items-center gap-1">
-                              <div className="flex gap-1">
-                                <div className="w-1 h-1 bg-white rounded-full"></div>
-                                <div className="w-1 h-1 bg-white rounded-full"></div>
-                                <div className="w-1 h-1 bg-white rounded-full"></div>
-                              </div>
-                              <div className="w-4 h-2 border border-white rounded-sm">
-                                <div className="w-3 h-1 bg-white rounded-xs"></div>
-                              </div>
-                            </div>
-                          </div>
-
-                          {/* Mobile App Content */}
-                          <div className="px-4 pt-6">
-                            <div className="flex items-center gap-2 mb-4">
-                              <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg flex items-center justify-center">
-                                <span className="text-white font-bold text-sm">B</span>
-                              </div>
-                              <div>
-                                <div className="text-white font-semibold text-sm">BatchBox</div>
-                                <div className="text-gray-400 text-xs">Mobile Dashboard</div>
-                              </div>
-                            </div>
-
-                            <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl p-4 mb-4">
-                              <div className="text-blue-100 text-xs mb-1">Active Students</div>
-                              <div className="text-white text-2xl font-bold mb-3">1,180</div>
-                              <div className="grid grid-cols-2 gap-2">
-                                <div className="bg-white/20 backdrop-blur-sm rounded-lg px-2 py-1 text-center">
-                                  <div className="text-white text-xs">Tests</div>
-                                  <div className="text-white font-semibold text-sm">47</div>
-                                </div>
-                                <div className="bg-white/20 backdrop-blur-sm rounded-lg px-2 py-1 text-center">
-                                  <div className="text-white text-xs">Success</div>
-                                  <div className="text-white font-semibold text-sm">94%</div>
-                                </div>
-                              </div>
-                            </div>
-
-                            <div className="text-white mb-3">
-                              <div className="text-sm font-semibold mb-2">AI Insights</div>
-                              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
-                                <div className="flex items-center gap-2 mb-1">
-                                  <Brain className="text-purple-400" size={14} />
-                                  <span className="text-xs">Auto-Generate Quiz</span>
-                                </div>
-                                <div className="text-gray-300 text-xs">Physics - Chapter 3</div>
-                                <div className="mt-2 bg-gradient-to-r from-green-500 to-blue-500 h-1.5 rounded-full w-3/4"></div>
-                              </div>
-                            </div>
-                          </div>
+                    {/* Recent Activity */}
+                    <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-100">
+                      <h4 className="font-semibold text-slate-800 mb-3">Recent Activity</h4>
+                      <div className="space-y-3">
+                        <div className="flex items-center gap-3 text-sm">
+                          <Brain className="text-blue-500 flex-shrink-0" size={16} />
+                          <span className="text-slate-700">AI Test generated for Physics - Motion</span>
+                          <span className="ml-auto text-slate-500">2m ago</span>
+                        </div>
+                        <div className="flex items-center gap-3 text-sm">
+                          <Users className="text-green-500 flex-shrink-0" size={16} />
+                          <span className="text-slate-700">25 students attended Chemistry class</span>
+                          <span className="ml-auto text-slate-500">5m ago</span>
+                        </div>
+                        <div className="flex items-center gap-3 text-sm">
+                          <MessageSquare className="text-purple-500 flex-shrink-0" size={16} />
+                          <span className="text-slate-700">Parent meeting scheduled</span>
+                          <span className="ml-auto text-slate-500">12m ago</span>
                         </div>
                       </div>
                     </div>
@@ -266,11 +256,17 @@ const Homepage = () => {
                 </div>
 
                 {/* Floating Elements */}
-                <div className="absolute -left-4 top-20 bg-white rounded-xl shadow-lg p-3 animate-pulse hidden sm:block">
-                  <Award className="text-yellow-500" size={24} />
+                <div className="absolute -left-6 top-20 bg-white rounded-xl shadow-lg p-4 border border-gray-200 hidden sm:block">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle className="text-green-500" size={20} />
+                    <span className="text-sm font-medium text-slate-700">Payment Received</span>
+                  </div>
                 </div>
-                <div className="absolute -right-8 bottom-20 bg-white rounded-xl shadow-lg p-3 animate-bounce hidden lg:block">
-                  <TrendingUp className="text-green-500" size={24} />
+                <div className="absolute -right-6 bottom-20 bg-white rounded-xl shadow-lg p-4 border border-gray-200 hidden lg:block">
+                  <div className="flex items-center gap-2">
+                    <TrendingUp className="text-blue-500" size={20} />
+                    <span className="text-sm font-medium text-slate-700">Performance Up</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -279,217 +275,251 @@ const Homepage = () => {
       </div>
 
       {/* Stats Section */}
-      <div className="bg-white/50 backdrop-blur-sm py-16" id="features">
+      <div className="bg-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="text-3xl font-bold text-gray-900 mb-2">4.8</div>
-              <div className="text-gray-600">App Rating</div>
-              <div className="flex justify-center mt-2">
-                {[1, 2, 3, 4, 5].map((star) => (
-                  <Star key={star} size={16} className="text-yellow-400 fill-current" />
-                ))}
-              </div>
+              <div className="text-3xl font-bold text-slate-800 mb-2">10,000+</div>
+              <div className="text-slate-600 font-medium">Active Institutes</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-gray-900 mb-2">50+</div>
-              <div className="text-gray-600">Countries</div>
+              <div className="text-3xl font-bold text-slate-800 mb-2">2M+</div>
+              <div className="text-slate-600 font-medium">Students Managed</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-gray-900 mb-2">200k+</div>
-              <div className="text-gray-600">Active Coaches</div>
+              <div className="text-3xl font-bold text-slate-800 mb-2">99.9%</div>
+              <div className="text-slate-600 font-medium">Uptime</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-gray-900 mb-2">99.9%</div>
-              <div className="text-gray-600">Uptime</div>
+              <div className="text-3xl font-bold text-slate-800 mb-2">150+</div>
+              <div className="text-slate-600 font-medium">Countries</div>
             </div>
           </div>
         </div>
       </div>
 
       {/* Features Section */}
-      <div className="py-20">
+      <div className="py-20 bg-gradient-to-br from-slate-50 to-blue-50" id="features">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-              🚀 BatchBox – Power Your Coaching with AI‑Driven Testing
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
+              Complete Institute Management Platform
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Complete coaching management supercharged with AI-powered testing and evaluation
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Everything you need to run your coaching institute efficiently, from student enrollment to performance analytics.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Feature Cards */}
-            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
-              <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl flex items-center justify-center mb-6">
-                <Zap className="text-white" size={24} />
+            <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
+              <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+                <Users className="text-blue-600" size={24} />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Effortless Setup & Automation</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Intuitive scheduling, attendance tracking, billing, and reminders with full AI-enabled testing and evaluation.
+              <h3 className="text-xl font-semibold text-slate-900 mb-3">Student Management</h3>
+              <p className="text-slate-600 leading-relaxed">
+                Complete student profiles, enrollment tracking, batch management, and parent communication in one place.
               </p>
             </div>
 
-            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
-              <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mb-6">
-                <Brain className="text-white" size={24} />
+            <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
+              <div className="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center mb-6">
+                <Brain className="text-indigo-600" size={24} />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">AI‑Generated Custom Tests</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Instantly generate personalized quizzes tailored to each student's curriculum, strengths, and learning gaps.
+              <h3 className="text-xl font-semibold text-slate-900 mb-3">AI-Powered Assessments</h3>
+              <p className="text-slate-600 leading-relaxed">
+                Generate unlimited tests, quizzes, and assignments automatically with our advanced AI technology.
               </p>
             </div>
 
-            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
-              <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-500 rounded-xl flex items-center justify-center mb-6">
-                <CheckCircle className="text-white" size={24} />
+            <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
+              <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mb-6">
+                <BarChart3 className="text-green-600" size={24} />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Instant AI Evaluation & Feedback</h3>
-              <p className="text-gray-600 leading-relaxed">
-                No more manual grading—our AI grades tests, highlights errors, and provides automated progress feedback instantly.
+              <h3 className="text-xl font-semibold text-slate-900 mb-3">Performance Analytics</h3>
+              <p className="text-slate-600 leading-relaxed">
+                Track student progress, identify learning gaps, and get actionable insights to improve outcomes.
               </p>
             </div>
 
-            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
-              <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-500 rounded-xl flex items-center justify-center mb-6">
-                <BarChart3 className="text-white" size={24} />
+            <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
+              <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-6">
+                <Calendar className="text-purple-600" size={24} />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Smart Insights & Growth</h3>
-              <p className="text-gray-600 leading-relaxed">
-                AI-powered analytics recommend how to focus lessons and optimize your coaching effectiveness over time.
+              <h3 className="text-xl font-semibold text-slate-900 mb-3">Smart Scheduling</h3>
+              <p className="text-slate-600 leading-relaxed">
+                Automated timetables, class scheduling, and resource allocation with conflict resolution.
               </p>
             </div>
 
-            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
-              <div className="w-12 h-12 bg-gradient-to-r from-indigo-500 to-blue-500 rounded-xl flex items-center justify-center mb-6">
-                <Clock className="text-white" size={24} />
+            <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
+              <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-6">
+                <MessageSquare className="text-orange-600" size={24} />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Time Saved</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Automate test creation and evaluation—focus on teaching, not marking. Save hours every week.
+              <h3 className="text-xl font-semibold text-slate-900 mb-3">Communication Hub</h3>
+              <p className="text-slate-600 leading-relaxed">
+                SMS, WhatsApp, email notifications, and parent-teacher communication portal for seamless interaction.
               </p>
             </div>
 
-            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
-              <div className="w-12 h-12 bg-gradient-to-r from-pink-500 to-purple-500 rounded-xl flex items-center justify-center mb-6">
-                <TrendingUp className="text-white" size={24} />
+            <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
+              <div className="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center mb-6">
+                <Shield className="text-teal-600" size={24} />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Data‑Driven Growth</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Understand performance trends with automatic AI insights and next-step suggestions for every student.
+              <h3 className="text-xl font-semibold text-slate-900 mb-3">Secure & Reliable</h3>
+              <p className="text-slate-600 leading-relaxed">
+                Bank-grade security, automated backups, and 99.9% uptime guarantee for your peace of mind.
               </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Solutions Section */}
+      <div className="py-20 bg-white" id="solutions">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
+              Perfect for Every Type of Institute
+            </h2>
+            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+              Whether you run a coaching center, sports academy, or skill development institute, we've got you covered.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="text-center p-8">
+              <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <BookOpen className="text-blue-600" size={32} />
+              </div>
+              <h3 className="text-xl font-semibold text-slate-900 mb-3">Academic Coaching</h3>
+              <p className="text-slate-600">JEE, NEET, CA, Banking, and other competitive exam preparation centers.</p>
+            </div>
+
+            <div className="text-center p-8">
+              <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Award className="text-green-600" size={32} />
+              </div>
+              <h3 className="text-xl font-semibold text-slate-900 mb-3">Sports Academies</h3>
+              <p className="text-slate-600">Cricket, football, tennis, and other sports training academies and clubs.</p>
+            </div>
+
+            <div className="text-center p-8">
+              <div className="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Settings className="text-purple-600" size={32} />
+              </div>
+              <h3 className="text-xl font-semibold text-slate-900 mb-3">Skill Development</h3>
+              <p className="text-slate-600">Music, dance, art, coding, and other skill-based learning centers.</p>
             </div>
           </div>
         </div>
       </div>
 
       {/* CTA Section */}
-      <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-purple-700 py-20" id="pricing">
+      <div className="bg-slate-800 py-20" id="pricing">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
-            AI‑Driven Testing = Smarter Coaching
+            Ready to Transform Your Institute?
           </h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Maximize efficiency. Elevate learning. Empower growth—effortlessly.
+          <p className="text-xl text-slate-300 mb-8 max-w-2xl mx-auto">
+            Join thousands of institutes that have streamlined their operations and improved student outcomes with BatchBox.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-purple-600 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-gray-50 transition-all duration-300 hover:scale-105 shadow-lg">
-              Start Free 7-Day Trial
+            <button className="bg-white text-slate-800 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-gray-50 transition-all duration-300 shadow-lg">
+              Start 14-Day Free Trial
             </button>
-            <button className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white hover:text-purple-600 transition-all duration-300">
+            <button className="border-2 border-slate-300 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-slate-700 transition-all duration-300">
               Schedule Demo
             </button>
           </div>
-          <p className="text-blue-100 text-sm mt-4">No credit card needed • Full access • Cancel anytime</p>
+          <p className="text-slate-400 text-sm mt-4">No credit card required • Full feature access • Cancel anytime</p>
         </div>
       </div>
 
-      {/* Modern Footer */}
-      <footer className="bg-gray-900 text-white py-16" id="contact">
+      {/* Footer */}
+      <footer className="bg-white border-t border-gray-200 py-16" id="contact">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Company Info */}
             <div className="space-y-4">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-gradient-to-br from-blue-600 via-purple-600 to-purple-700 rounded-xl flex items-center justify-center">
-                  <span className="text-white font-bold">B</span>
+                <div className="w-8 h-8 bg-gradient-to-br from-slate-700 via-blue-600 to-indigo-700 rounded-lg flex items-center justify-center">
+                  <div className="w-4 h-4 border border-white rounded-sm"></div>
                 </div>
-                <span className="text-2xl font-bold">BatchBox</span>
+                <div>
+                  <span className="text-xl font-bold text-slate-800">BatchBox</span>
+                  <div className="text-xs text-slate-500 -mt-1">Everything. Simplified.</div>
+                </div>
               </div>
-              <p className="text-gray-400 leading-relaxed">
-                Empowering coaches worldwide with AI-driven testing and comprehensive student management solutions.
+              <p className="text-slate-600 leading-relaxed">
+                Empowering institutes worldwide with comprehensive management solutions that drive student success.
               </p>
               <div className="flex space-x-4">
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                <a href="#" className="text-slate-400 hover:text-slate-600 transition-colors">
                   <Facebook size={20} />
                 </a>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                <a href="#" className="text-slate-400 hover:text-slate-600 transition-colors">
                   <Twitter size={20} />
                 </a>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  <Instagram size={20} />
-                </a>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                <a href="#" className="text-slate-400 hover:text-slate-600 transition-colors">
                   <Linkedin size={20} />
                 </a>
               </div>
             </div>
 
-            {/* Product Links */}
+            {/* Product */}
             <div>
-              <h3 className="text-lg font-semibold mb-4">Product</h3>
+              <h3 className="text-lg font-semibold text-slate-800 mb-4">Product</h3>
               <ul className="space-y-2">
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Features</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Pricing</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">API Documentation</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Integrations</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Security</a></li>
+                <li><a href="#" className="text-slate-600 hover:text-slate-800 transition-colors">Features</a></li>
+                <li><a href="#" className="text-slate-600 hover:text-slate-800 transition-colors">Pricing</a></li>
+                <li><a href="#" className="text-slate-600 hover:text-slate-800 transition-colors">Integrations</a></li>
+                <li><a href="#" className="text-slate-600 hover:text-slate-800 transition-colors">Mobile App</a></li>
               </ul>
             </div>
 
-            {/* Support Links */}
+            {/* Support */}
             <div>
-              <h3 className="text-lg font-semibold mb-4">Support</h3>
+              <h3 className="text-lg font-semibold text-slate-800 mb-4">Support</h3>
               <ul className="space-y-2">
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Help Center</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Contact Us</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Community</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Status Page</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Bug Reports</a></li>
+                <li><a href="#" className="text-slate-600 hover:text-slate-800 transition-colors">Help Center</a></li>
+                <li><a href="#" className="text-slate-600 hover:text-slate-800 transition-colors">Contact Us</a></li>
+                <li><a href="#" className="text-slate-600 hover:text-slate-800 transition-colors">Training</a></li>
+                <li><a href="#" className="text-slate-600 hover:text-slate-800 transition-colors">System Status</a></li>
               </ul>
             </div>
 
-            {/* Contact Info */}
+            {/* Contact */}
             <div>
-              <h3 className="text-lg font-semibold mb-4">Contact</h3>
+              <h3 className="text-lg font-semibold text-slate-800 mb-4">Contact</h3>
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
-                  <Mail size={16} className="text-purple-400" />
-                  <span className="text-gray-400">hello@batchbox.com</span>
+                  <Mail size={16} className="text-slate-500" />
+                  <span className="text-slate-600">hello@BatchBox.com</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <Phone size={16} className="text-purple-400" />
-                  <span className="text-gray-400">+1 (555) 123-4567</span>
+                  <Phone size={16} className="text-slate-500" />
+                  <span className="text-slate-600">+1 (555) 123-4567</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <MapPin size={16} className="text-purple-400" />
-                  <span className="text-gray-400">San Francisco, CA</span>
+                  <MapPin size={16} className="text-slate-500" />
+                  <span className="text-slate-600">San Francisco, CA</span>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Bottom Section */}
-          <div className="mt-12 pt-8 border-t border-gray-800">
+          {/* Bottom */}
+          <div className="mt-12 pt-8 border-t border-gray-200">
             <div className="flex flex-col sm:flex-row justify-between items-center">
-              <p className="text-gray-400 text-sm">
-                © 2024 BatchBox. All rights reserved.
+              <p className="text-slate-500 text-sm">
+                © 2025 BatchBox. All rights reserved.
               </p>
               <div className="flex space-x-6 mt-4 sm:mt-0">
-                <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</a>
-                <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Terms of Service</a>
-                <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Cookie Policy</a>
+                <a href="#" className="text-slate-500 hover:text-slate-700 text-sm transition-colors">Privacy</a>
+                <a href="#" className="text-slate-500 hover:text-slate-700 text-sm transition-colors">Terms</a>
+                <a href="#" className="text-slate-500 hover:text-slate-700 text-sm transition-colors">Terms</a>
+                <a href="#" className="text-slate-500 hover:text-slate-700 text-sm transition-colors">Cookies</a>
               </div>
             </div>
           </div>
